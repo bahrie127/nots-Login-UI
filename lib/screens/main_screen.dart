@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:thirdnoteapptry/models/data_list.dart';
+import 'package:thirdnoteapptry/providers/google_provider.dart';
+import 'package:thirdnoteapptry/screens/wellcome_screen.dart';
 
 class Mainscreen extends StatefulWidget {
   const Mainscreen({Key? key}) : super(key: key);
@@ -48,7 +50,15 @@ class _MainscreenState extends State<Mainscreen> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        //SignOut
+                        AuthClass().signOut();
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => WelcomeScreen()),
+                            (route) => false);
+                      },
                       icon: const Icon(Icons.more_horiz_rounded)),
                 ],
               ),
