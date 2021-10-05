@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:thirdnoteapptry/screens/home_screen.dart';
-import 'package:thirdnoteapptry/screens/wellcome_screen.dart';
+import 'package:thirdnoteapptry/screens/main_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,9 +28,10 @@ class MyApp extends StatelessWidget {
             title: 'NotsApp',
             theme: ThemeData(
               primarySwatch: Colors.blueGrey,
+              visualDensity: VisualDensity.adaptivePlatformDensity,
             ),
             themeMode: ThemeMode.light,
-            home: HomeScreen(),
+            home: Mainscreen(),
           );
         });
   }
