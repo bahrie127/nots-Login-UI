@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "712281545859",
+    "project_id": "united-crane-321811",
+    "storage_bucket": "united-crane-321811.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:712281545859:android:1a1d9a51cc1d61b95b0fb6",
+        "android_client_info": {
+          "package_name": "com.example.thirdnoteapptry"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "712281545859-dspmjlm265fjugh1te12qeu1jo804fqi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXa1KPb0bdX_731cuJjHwMsSerMfbUJG4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "712281545859-dspmjlm265fjugh1te12qeu1jo804fqi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "712281545859-kkj46ubqqmhlt92merjnar6msh6htrur.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.thirdnoteapptry"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

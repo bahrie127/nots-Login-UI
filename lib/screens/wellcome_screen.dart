@@ -1,7 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:thirdnoteapptry/widgets/login_form.dart';
+import 'package:thirdnoteapptry/providers/google_provider.dart';
+import 'package:thirdnoteapptry/screens/authscreen/login_screen.dart';
+import 'package:thirdnoteapptry/screens/authscreen/signup.dart';
 
 class WelcomeScreen extends StatefulWidget {
   WelcomeScreen({Key? key}) : super(key: key);
@@ -13,23 +16,14 @@ class WelcomeScreen extends StatefulWidget {
 class _WelcomeScreenState extends State<WelcomeScreen> {
   Container MyArticles(String imageVal) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 90),
-      height: 400,
+      margin: const EdgeInsets.symmetric(vertical: 150),
+      height: 300,
       width: 300,
-      child: Card(
-        shape: RoundedRectangleBorder(
-          side: const BorderSide(color: Colors.blueGrey, width: 2),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        color: Colors.white,
-        elevation: 20,
-        margin: const EdgeInsets.all(9),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(12),
-          child: Image.network(
-            imageVal,
-            fit: BoxFit.fill,
-          ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(200),
+        child: Image.asset(
+          imageVal,
+          fit: BoxFit.fitWidth,
         ),
       ),
     );
@@ -52,32 +46,57 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
-                Column(
-                  children: [
-                    MyArticles(
-                      "https://images.unsplash.com/photo-1586202690180-1967f682ef1a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=744&q=80",
-                    ),
-                  ],
+                const SizedBox(
+                  width: 60,
                 ),
                 Column(
                   children: [
                     MyArticles(
-                      "https://images.unsplash.com/photo-1616628188540-925618b98318?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80",
+                      "assets/images/stickernote.png",
                     ),
                   ],
+                ),
+                const SizedBox(
+                  width: 100,
                 ),
                 Column(
                   children: [
                     MyArticles(
-                      "https://images.unsplash.com/photo-1616628188725-0a474c982b5c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2187&q=80",
+                      "assets/images/todo2.png",
                     ),
                   ],
+                ),
+                const SizedBox(
+                  width: 100,
+                ),
+                Column(
+                  children: [
+                    MyArticles(
+                      "assets/images/tracker.png",
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  width: 70,
                 ),
               ],
             ),
           ),
           Positioned(
-            bottom: 140,
+            bottom: 400,
+            right: 190,
+            child: Row(
+              children: [
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.swipe_rounded),
+                  color: Colors.white,
+                )
+              ],
+            ),
+          ),
+          Positioned(
+            bottom: 130,
             right: 110,
             child: Container(
               height: 80,
@@ -88,17 +107,25 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     icon: Image.asset(
                       'assets/images/user.png',
                       color: Colors.white,
-                      height: 40,
+                      height: 30,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => LoginAuth()));
+                    },
                   ),
-                  TextButton(
-                    onPressed: () {},
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => LoginAuth()));
+                    },
                     child: const Text(
                       'Login',
-                      style: TextStyle(fontSize: 25, color: Colors.white),
+                      style: TextStyle(
+                        fontSize: 18.0,
+                      ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -109,7 +136,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             child: Row(
               children: [
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Signup()));
+                  },
                   child: const Text(
                     'Create an account.',
                     style: TextStyle(
@@ -138,7 +170,19 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                           crossAxisAlignment: WrapCrossAlignment.center,
                           children: [
                             IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  // //Sign In with google
+                                  AuthClass()
+                                      .signWithGoogle()
+                                      .then((UserCredential value) {
+                                    Navigator.pushAndRemoveUntil(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                WelcomeScreen()),
+                                        (route) => false);
+                                  });
+                                },
                                 icon: ClipRRect(
                                   borderRadius: BorderRadius.circular(12),
                                   child: Image.asset(
@@ -146,7 +190,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                     height: 40,
                                   ),
                                 )),
-                            SizedBox(width: 1),
                             const Text(
                               'Sign in with Google   ',
                               style: TextStyle(color: Colors.black),
