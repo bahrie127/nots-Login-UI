@@ -30,10 +30,11 @@ class _ForgotPasswordState extends State<ForgotPassword> {
           ),
         ),
       );
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => WelcomeScreen()));
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (context) => const WelcomeScreen()));
     } on FirebaseAuthException catch (error) {
       if (error.code == 'user-not-found') {
+        // ignore: avoid_print
         print('No user found for that email');
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
@@ -81,7 +82,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
         constraints: const BoxConstraints.expand(),
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/1deneme.jpg'),
+            image: AssetImage('assets/images/bgCover.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -150,14 +151,15 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         children: [
                           const Text(
                             'Do not have an account ?',
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: Colors.black),
                           ),
                           TextButton(
                             onPressed: () {
                               Navigator.pushAndRemoveUntil(
                                   context,
                                   PageRouteBuilder(
-                                    pageBuilder: (context, a, b) => LoginAuth(),
+                                    pageBuilder: (context, a, b) =>
+                                        const LoginAuth(),
                                     transitionDuration:
                                         const Duration(seconds: 0),
                                   ),
@@ -165,7 +167,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                             },
                             child: const Text(
                               'Create an account',
-                              style: TextStyle(color: Colors.white),
+                              style: TextStyle(color: Colors.black),
                             ),
                           )
                         ],

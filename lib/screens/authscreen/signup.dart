@@ -36,6 +36,7 @@ class _SignupState extends State<Signup> {
       try {
         UserCredential userCredential = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(email: email, password: password);
+        // ignore: avoid_print
         print(userCredential);
 
         ScaffoldMessenger.of(context).showSnackBar(
@@ -51,7 +52,7 @@ class _SignupState extends State<Signup> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => WelcomeScreen(),
+            builder: (context) => const WelcomeScreen(),
           ),
         );
       } on FirebaseAuthException catch (error) {
@@ -117,7 +118,7 @@ class _SignupState extends State<Signup> {
           },
           child: const Icon(
             Icons.arrow_back_ios_new_rounded,
-            color: Colors.white,
+            color: Colors.black,
           ),
         ),
         actions: <Widget>[
@@ -128,13 +129,13 @@ class _SignupState extends State<Signup> {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => WelcomeScreen(),
+                    builder: (context) => const WelcomeScreen(),
                   ),
                 );
               },
               child: const Icon(
                 Icons.more_vert_outlined,
-                color: Colors.white,
+                color: Colors.black,
                 size: 26.0,
               ),
             ),
@@ -145,7 +146,7 @@ class _SignupState extends State<Signup> {
         constraints: const BoxConstraints.expand(),
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/1deneme.jpg'),
+            image: AssetImage('assets/images/bgCover.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -164,7 +165,7 @@ class _SignupState extends State<Signup> {
                       labelText: 'Email',
                       labelStyle: TextStyle(fontSize: 15.0),
                       errorStyle: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 15,
                       ),
                       contentPadding: EdgeInsets.all(10),
@@ -189,7 +190,7 @@ class _SignupState extends State<Signup> {
                       labelText: 'Password',
                       labelStyle: TextStyle(fontSize: 15.0),
                       errorStyle: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 15,
                       ),
                       contentPadding: EdgeInsets.all(10),
@@ -214,7 +215,7 @@ class _SignupState extends State<Signup> {
                       labelText: 'Comfirm password',
                       labelStyle: TextStyle(fontSize: 15.0),
                       errorStyle: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 15,
                       ),
                       contentPadding: EdgeInsets.all(10),
@@ -233,60 +234,55 @@ class _SignupState extends State<Signup> {
                 const SizedBox(
                   height: 15,
                 ),
-                Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ElevatedButton(
-                        onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            setState(() {
-                              email = emailController.text;
-                              password = passwordController.text;
-                              comfirmPassword = confirmPasswordController.text;
-                            });
-                            registration();
-                          }
-                        },
-                        child: const Text(
-                          'Signup',
-                          style: TextStyle(
-                            fontSize: 18.0,
-                          ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                          setState(() {
+                            email = emailController.text;
+                            password = passwordController.text;
+                            comfirmPassword = confirmPasswordController.text;
+                          });
+                          registration();
+                        }
+                      },
+                      child: const Text(
+                        'Signup',
+                        style: TextStyle(
+                          fontSize: 18.0,
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
                 const SizedBox(
                   height: 15,
                 ),
-                Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'Already have an account ?',
-                        style: TextStyle(color: Colors.white),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      'Already have an account ?',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                            context,
+                            PageRouteBuilder(
+                              pageBuilder: (context, animation1, animation2) =>
+                                  const LoginAuth(),
+                              transitionDuration: const Duration(seconds: 0),
+                            ));
+                      },
+                      child: const Text(
+                        'Login',
+                        style: TextStyle(color: Colors.black),
                       ),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.pushReplacement(
-                              context,
-                              PageRouteBuilder(
-                                pageBuilder:
-                                    (context, animation1, animation2) =>
-                                        LoginAuth(),
-                                transitionDuration: const Duration(seconds: 0),
-                              ));
-                        },
-                        child: const Text(
-                          'Login',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 )
               ],
             ),

@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:thirdnoteapptry/screens/authscreen/login_screen.dart';
 import 'package:thirdnoteapptry/screens/main_screen.dart';
 import 'package:thirdnoteapptry/screens/wellcome_screen.dart';
 
@@ -16,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var assetsImage = const AssetImage('assets/images/1deneme.jpg');
+    var assetsImage = const AssetImage('assets/images/check.gif');
     var image = Image(
       image: assetsImage,
       fit: BoxFit.cover,
@@ -27,12 +26,12 @@ class _SplashScreenState extends State<SplashScreen> {
       if (auth.currentUser == null) {
         Navigator.pushAndRemoveUntil(
             context,
-            MaterialPageRoute(builder: (context) => WelcomeScreen()),
+            MaterialPageRoute(builder: (context) => const WelcomeScreen()),
             (route) => false);
       } else {
         Navigator.pushAndRemoveUntil(
             context,
-            MaterialPageRoute(builder: (context) => Mainscreen()),
+            MaterialPageRoute(builder: (context) => const Mainscreen()),
             (route) => false);
       }
     });

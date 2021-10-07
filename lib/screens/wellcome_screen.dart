@@ -7,18 +7,19 @@ import 'package:thirdnoteapptry/screens/authscreen/login_screen.dart';
 import 'package:thirdnoteapptry/screens/authscreen/signup.dart';
 
 class WelcomeScreen extends StatefulWidget {
-  WelcomeScreen({Key? key}) : super(key: key);
+  const WelcomeScreen({Key? key}) : super(key: key);
 
   @override
   _WelcomeScreenState createState() => _WelcomeScreenState();
 }
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
+  // ignore: non_constant_identifier_names
   Container MyArticles(String imageVal) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 150),
-      height: 300,
-      width: 300,
+      margin: const EdgeInsets.symmetric(vertical: 100),
+      height: 200,
+      width: 200,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(200),
         child: Image.asset(
@@ -38,21 +39,21 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             constraints: const BoxConstraints.expand(),
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/1deneme.jpg'),
+                image: AssetImage('assets/images/bgCover.png'),
                 fit: BoxFit.cover,
               ),
             ),
-            height: 700,
+            height: 200,
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
                 const SizedBox(
-                  width: 60,
+                  width: 100,
                 ),
                 Column(
                   children: [
                     MyArticles(
-                      "assets/images/stickernote.png",
+                      "assets/images/kalem.gif",
                     ),
                   ],
                 ),
@@ -62,7 +63,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 Column(
                   children: [
                     MyArticles(
-                      "assets/images/todo2.png",
+                      "assets/images/doc.gif",
                     ),
                   ],
                 ),
@@ -72,25 +73,26 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 Column(
                   children: [
                     MyArticles(
-                      "assets/images/tracker.png",
+                      "assets/images/clock.gif",
                     ),
                   ],
                 ),
                 const SizedBox(
-                  width: 70,
+                  width: 100,
                 ),
               ],
             ),
           ),
           Positioned(
-            bottom: 400,
-            right: 190,
+            bottom: 300,
+            right: 120,
             child: Row(
               children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.swipe_rounded),
-                  color: Colors.white,
+                Container(
+                  child: Image.asset('assets/images/scroll.gif'),
+                  height: 50,
+                  alignment: FractionalOffset.center,
+                  transform: Matrix4.identity()..rotateZ(90 * 3.1415927 / 180),
                 )
               ],
             ),
@@ -98,7 +100,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           Positioned(
             bottom: 130,
             right: 110,
-            child: Container(
+            child: SizedBox(
               height: 80,
               width: 160,
               child: Row(
@@ -106,18 +108,22 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   IconButton(
                     icon: Image.asset(
                       'assets/images/user.png',
-                      color: Colors.white,
+                      color: Colors.black,
                       height: 30,
                     ),
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => LoginAuth()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LoginAuth()));
                     },
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => LoginAuth()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LoginAuth()));
                     },
                     child: const Text(
                       'Login',
@@ -146,7 +152,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     'Create an account.',
                     style: TextStyle(
                         fontSize: 15,
-                        color: Colors.white,
+                        color: Colors.black,
                         fontWeight: FontWeight.w400),
                   ),
                 ),
@@ -179,7 +185,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                WelcomeScreen()),
+                                                const WelcomeScreen()),
                                         (route) => false);
                                   });
                                 },

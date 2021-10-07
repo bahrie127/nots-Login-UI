@@ -56,7 +56,7 @@ class _MainscreenState extends State<Mainscreen> {
                         Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => WelcomeScreen()),
+                                builder: (context) => const WelcomeScreen()),
                             (route) => false);
                       },
                       icon: const Icon(Icons.more_horiz_rounded)),

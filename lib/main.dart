@@ -1,6 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:thirdnoteapptry/screens/main_screen.dart';
 import 'package:thirdnoteapptry/screens/splash_screen.dart';
 
 void main() async {
@@ -10,6 +9,8 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
+
+  MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +29,11 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: 'NotsApp',
             theme: ThemeData(
-              primarySwatch: Colors.blueGrey,
+              primarySwatch: Colors.deepPurple,
               visualDensity: VisualDensity.adaptivePlatformDensity,
             ),
             themeMode: ThemeMode.light,
-            home: Home(),
+            home: const Home(),
           );
         });
   }

@@ -29,11 +29,12 @@ class _LoginAuthState extends State<LoginAuth> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => Mainscreen(),
+          builder: (context) => const Mainscreen(),
         ),
       );
     } on FirebaseAuthException catch (error) {
       if (error.code == 'user-not-found') {
+        // ignore: avoid_print
         print('No user found for the email');
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
@@ -48,6 +49,7 @@ class _LoginAuthState extends State<LoginAuth> {
           ),
         );
       } else if (error.code == 'wrong-password') {
+        // ignore: avoid_print
         print('Wrong password provided by the user!');
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
@@ -82,7 +84,7 @@ class _LoginAuthState extends State<LoginAuth> {
           },
           child: const Icon(
             Icons.arrow_back_ios_new_rounded,
-            color: Colors.white,
+            color: Colors.black,
           ),
         ),
         actions: <Widget>[
@@ -99,7 +101,7 @@ class _LoginAuthState extends State<LoginAuth> {
                 },
                 child: const Icon(
                   Icons.more_vert_outlined,
-                  color: Colors.white,
+                  color: Colors.black,
                   size: 26.0,
                 ),
               )),
@@ -109,7 +111,7 @@ class _LoginAuthState extends State<LoginAuth> {
         constraints: const BoxConstraints.expand(),
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/1deneme.jpg'),
+            image: AssetImage('assets/images/bgCover.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -120,25 +122,6 @@ class _LoginAuthState extends State<LoginAuth> {
                 const EdgeInsets.symmetric(vertical: 80.0, horizontal: 20.0),
             child: ListView(
               children: [
-                // Padding(
-                //   padding: const EdgeInsets.all(8.0),
-                //   child: Image.asset(
-                //     "assets/images/mowee.png",
-                //     height: 50,
-                //   ),
-                // ),
-                // Padding(
-                //   padding: const EdgeInsets.only(top: 10),
-                //   child: Neon(
-                //     text: 'MöweeHome',
-                //     color: Colors.purple,
-                //     fontSize: 35,
-                //     font: NeonFont.Beon,
-                //     flickeringText: true,
-                //     flickeringLetters: null,
-                //     glowingDuration: const Duration(seconds: 1),
-                //   ),
-                // ),
                 Container(
                   margin: const EdgeInsets.symmetric(vertical: 10.0),
                   child: TextFormField(
@@ -148,7 +131,7 @@ class _LoginAuthState extends State<LoginAuth> {
                       labelStyle:
                           TextStyle(fontSize: 15.0, color: Colors.black),
                       errorStyle: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 15,
                       ),
                       contentPadding: EdgeInsets.all(10),
@@ -226,7 +209,7 @@ class _LoginAuthState extends State<LoginAuth> {
                           'Forgot Password',
                           style: TextStyle(
                             fontSize: 12.0,
-                            color: Colors.white,
+                            color: Colors.black,
                           ),
                         ),
                       )
@@ -238,7 +221,7 @@ class _LoginAuthState extends State<LoginAuth> {
                   children: [
                     const Text(
                       'Do not have an account ?',
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: Colors.black),
                     ),
                     TextButton(
                       onPressed: () {
@@ -252,7 +235,7 @@ class _LoginAuthState extends State<LoginAuth> {
                       },
                       child: const Text(
                         'Create an account',
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: Colors.black),
                       ),
                     ),
                   ],
