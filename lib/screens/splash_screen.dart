@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:thirdnoteapptry/screens/homenav_screen.dart';
 import 'package:thirdnoteapptry/screens/main_screen.dart';
 import 'package:thirdnoteapptry/screens/wellcome_screen.dart';
 
@@ -31,33 +32,19 @@ class _SplashScreenState extends State<SplashScreen> {
       } else {
         Navigator.pushAndRemoveUntil(
             context,
-            MaterialPageRoute(builder: (context) => const Mainscreen()),
+            MaterialPageRoute(
+                builder: (context) => const HomeNavigationScreen()),
             (route) => false);
       }
     });
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(6.0),
-          gradient: const LinearGradient(
-              begin: FractionalOffset.topLeft,
-              end: FractionalOffset.bottomRight,
-              colors: [
-                Color(0xFFCCCCFF),
-                Color(0xFF96DED1),
-                Color(0XFFB6D0E2),
-                Color(0XFFB6D0E2),
-                Color(0XFFB6D0E2),
-                Color(0xFF96DED1),
-              ],
-              stops: [
-                0.0,
-                0.3,
-                0.3,
-                0.7,
-                0.7,
-                1.0
-              ]),
+        constraints: const BoxConstraints.expand(),
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/bgCover.png'),
+            fit: BoxFit.cover,
+          ),
         ),
         child: Center(
             child: Row(

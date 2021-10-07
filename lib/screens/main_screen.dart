@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:thirdnoteapptry/models/data_list.dart';
 import 'package:thirdnoteapptry/providers/google_provider.dart';
 import 'package:thirdnoteapptry/screens/wellcome_screen.dart';
 
@@ -13,7 +12,6 @@ class Mainscreen extends StatefulWidget {
 }
 
 class _MainscreenState extends State<Mainscreen> {
-  var itemList = data;
   var listScrollController = ScrollController();
   var scrollDirection = ScrollDirection.idle;
 
@@ -41,7 +39,7 @@ class _MainscreenState extends State<Mainscreen> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
+          padding: const EdgeInsets.symmetric(horizontal: 1),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -63,24 +61,36 @@ class _MainscreenState extends State<Mainscreen> {
                 ],
               ),
               const SizedBox(height: 37),
-              const Text.rich(
-                TextSpan(
-                    text: 'Welcome, ',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
+              Row(
+                children: const [
+                  Padding(
+                    padding: EdgeInsets.only(left: 25, right: 25),
+                    child: CircleAvatar(
+                      backgroundColor: Colors.white,
+                      radius: 50,
+                      backgroundImage: AssetImage('assets/images/avatar.gif'),
                     ),
-                    children: [
-                      TextSpan(
-                        text: 'Turgay',
-                        style: TextStyle(fontWeight: FontWeight.normal),
-                      )
-                    ]),
-                style: TextStyle(fontSize: 50),
+                  ),
+                  Text.rich(
+                    TextSpan(
+                        text: 'Welcome,\n',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                        children: [
+                          TextSpan(
+                            text: 'Turgay',
+                            style: TextStyle(fontWeight: FontWeight.normal),
+                          )
+                        ]),
+                    style: TextStyle(fontSize: 30),
+                  ),
+                ],
               ),
               const SizedBox(height: 30),
               Center(
                 child: Container(
-                  height: 300,
+                  height: 250,
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   child: NotificationListener<ScrollNotification>(
                     onNotification: _scrollNotification,
@@ -89,7 +99,8 @@ class _MainscreenState extends State<Mainscreen> {
                       scrollDirection: Axis.horizontal,
                       children: [
                         AnimatedContainer(
-                          width: 200,
+                          height: 50,
+                          width: 150,
                           margin: const EdgeInsets.symmetric(
                               horizontal: 16, vertical: 16),
                           padding: const EdgeInsets.symmetric(
@@ -118,14 +129,14 @@ class _MainscreenState extends State<Mainscreen> {
                                 children: [
                                   const Icon(
                                     Icons.note_alt_rounded,
-                                    size: 40,
+                                    size: 30,
                                   ),
                                   TextButton(
                                     child: const Text(
                                       'Notes',
                                       style: TextStyle(
                                           color: Colors.black,
-                                          fontSize: 30,
+                                          fontSize: 20,
                                           fontWeight: FontWeight.bold),
                                     ),
                                     onPressed: () {},
@@ -136,7 +147,8 @@ class _MainscreenState extends State<Mainscreen> {
                           ),
                         ),
                         AnimatedContainer(
-                          width: 200,
+                          height: 50,
+                          width: 150,
                           margin: const EdgeInsets.symmetric(
                               horizontal: 16, vertical: 16),
                           padding: const EdgeInsets.symmetric(
@@ -165,15 +177,15 @@ class _MainscreenState extends State<Mainscreen> {
                                 children: [
                                   const Icon(
                                     Icons.list_alt,
-                                    size: 40,
-                                    color: Colors.white,
+                                    size: 30,
+                                    color: Colors.black,
                                   ),
                                   TextButton(
                                     child: const Text(
                                       'ToDo\nList',
                                       style: TextStyle(
                                           color: Colors.black,
-                                          fontSize: 30,
+                                          fontSize: 20,
                                           fontWeight: FontWeight.bold),
                                     ),
                                     onPressed: () {},
@@ -184,7 +196,8 @@ class _MainscreenState extends State<Mainscreen> {
                           ),
                         ),
                         AnimatedContainer(
-                          width: 200,
+                          height: 50,
+                          width: 150,
                           margin: const EdgeInsets.symmetric(
                               horizontal: 16, vertical: 16),
                           padding: const EdgeInsets.symmetric(
@@ -213,15 +226,15 @@ class _MainscreenState extends State<Mainscreen> {
                                 children: [
                                   const Icon(
                                     Icons.done,
-                                    size: 50,
-                                    color: Colors.green,
+                                    size: 30,
+                                    color: Colors.black,
                                   ),
                                   TextButton(
                                     child: const Text(
                                       'Work\nDone',
                                       style: TextStyle(
                                           color: Colors.black,
-                                          fontSize: 30,
+                                          fontSize: 20,
                                           fontWeight: FontWeight.bold),
                                     ),
                                     onPressed: () {},
@@ -236,10 +249,13 @@ class _MainscreenState extends State<Mainscreen> {
                   ),
                 ),
               ),
-              const SizedBox(height: 80),
-              const Text(
-                'Notes Preview',
-                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+              const SizedBox(height: 30),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  'Notes Preview',
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+                ),
               ),
               const SizedBox(height: 10),
               SizedBox(

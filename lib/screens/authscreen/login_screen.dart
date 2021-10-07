@@ -4,6 +4,7 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 import 'package:thirdnoteapptry/screens/authscreen/forgot_password.dart';
 import 'package:thirdnoteapptry/screens/authscreen/signup.dart';
+import 'package:thirdnoteapptry/screens/homenav_screen.dart';
 import 'package:thirdnoteapptry/screens/main_screen.dart';
 
 class LoginAuth extends StatefulWidget {
@@ -29,7 +30,7 @@ class _LoginAuthState extends State<LoginAuth> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => const Mainscreen(),
+          builder: (context) => const HomeNavigationScreen(),
         ),
       );
     } on FirebaseAuthException catch (error) {
