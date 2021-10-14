@@ -3,21 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>712281545859-kkj46ubqqmhlt92merjnar6msh6htrur.apps.googleusercontent.com</string>
+	<string>464705815256-v7bmaj4rej6hm1ti0u5uhk7al5eafq8r.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.712281545859-kkj46ubqqmhlt92merjnar6msh6htrur</string>
+	<string>com.googleusercontent.apps.464705815256-v7bmaj4rej6hm1ti0u5uhk7al5eafq8r</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>464705815256-14dqf4f7fgvcqa02br11mfvelna9umqs.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBTyjnRJmEiHK8-cpsInmMwbDl1tGiPvP0</string>
+	<string>AIzaSyCNJYIHFB1XrblzoNsRndmx63OvlvAAs6I</string>
 	<key>GCM_SENDER_ID</key>
-	<string>712281545859</string>
+	<string>464705815256</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.example.thirdnoteapptry</string>
 	<key>PROJECT_ID</key>
-	<string>united-crane-321811</string>
+	<string>noteapplication-e8034</string>
 	<key>STORAGE_BUCKET</key>
-	<string>united-crane-321811.appspot.com</string>
+	<string>noteapplication-e8034.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:712281545859:ios:6c4971a81ef8784b5b0fb6</string>
+	<string>1:464705815256:ios:b753d319520100b87e8dad</string>
 </dict>
 </plist>
