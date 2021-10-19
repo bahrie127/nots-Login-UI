@@ -1,39 +1,70 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:thirdnoteapptry/models/user.dart';
+import 'package:thirdnoteapptry/screens/homenav_screen.dart';
 
-class AuthClass {
-  FirebaseAuth auth = FirebaseAuth.instance;
-  var googleSignInNow = GoogleSignIn();
+GoogleSignIn googleSignIn = GoogleSignIn();
+final FirebaseAuth auth = FirebaseAuth.instance;
+CollectionReference users = FirebaseFirestore.instance.collection('users');
 
-  UserDetailsModel? userDetailsModel;
-
-  //SignOut
-  void signOut() {
-    auth.signOut();
-  }
-
-  //Google Auth
-  Future<UserCredential> signWithGoogle() async {
-    final GoogleSignInAccount? googleUser =
-        await GoogleSignIn(scopes: <String>["email"]).signIn();
-
-    final GoogleSignInAuthentication googleAuth =
-        await googleUser!.authentication;
-
+// changing return type to void
+// as bool was not needed here
+void signInWithGoogle(BuildContext context) async {
+  try {
     final GoogleSignInAccount? googleSignInAccount =
-        await googleSignInNow.signIn();
+        await googleSignIn.signIn();
 
-    userDetailsModel = UserDetailsModel(
-        displayName: googleSignInAccount!.displayName,
-        email: googleSignInAccount.email,
-        photoURL: googleSignInAccount.photoUrl);
+    if (googleSignInAccount != null) {
+      final GoogleSignInAuthentication googleSignInAuthentication =
+          await googleSignInAccount.authentication;
 
-    final OAuthCredential credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth.accessToken,
-      idToken: googleAuth.idToken,
-    );
+      final AuthCredential credential = GoogleAuthProvider.credential(
+          accessToken: googleSignInAuthentication.accessToken,
+          idToken: googleSignInAuthentication.idToken);
 
-    return await FirebaseAuth.instance.signInWithCredential(credential);
+      final UserCredential authResult =
+          await auth.signInWithCredential(credential);
+
+      final User? user = authResult.user;
+
+      var userData = {
+        'name': googleSignInAccount.displayName,
+        'provider': 'google',
+        'photoUrl': googleSignInAccount.photoUrl,
+        'email': googleSignInAccount.email,
+      };
+
+      users.doc(user!.uid).get().then((doc) {
+        if (doc.exists) {
+          // old user
+          doc.reference.update(userData);
+
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(
+              builder: (context) => const HomeNavigationScreen(),
+            ),
+          );
+        } else {
+          // new user
+
+          users.doc(user.uid).set(userData);
+
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(
+              builder: (context) => const HomeNavigationScreen(),
+            ),
+          );
+        }
+      });
+    }
+    // ignore: non_constant_identifier_names
+  } catch (PlatformException) {
+    // ignore: avoid_print
+    print(PlatformException);
+    // ignore: avoid_print
+    print("Sign in not successful !");
+    // better show an alert here
   }
 }

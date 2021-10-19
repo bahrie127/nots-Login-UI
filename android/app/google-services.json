@@ -1,40 +1,92 @@
 {
   "project_info": {
-    "project_number": "712281545859",
-    "project_id": "united-crane-321811",
-    "storage_bucket": "united-crane-321811.appspot.com"
+    "project_number": "464705815256",
+    "project_id": "noteapplication-e8034",
+    "storage_bucket": "noteapplication-e8034.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:712281545859:android:1a1d9a51cc1d61b95b0fb6",
+        "mobilesdk_app_id": "1:464705815256:android:5fb4b4e7534cc0517e8dad",
         "android_client_info": {
-          "package_name": "com.example.thirdnoteapptry"
+          "package_name": "com.example.ani_loginapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "712281545859-dspmjlm265fjugh1te12qeu1jo804fqi.apps.googleusercontent.com",
+          "client_id": "464705815256-bku8cg9gac7ucr7f7dphcmhrmnrpt3qp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ani_loginapp",
+            "certificate_hash": "dd0df8481f6015376550d1ebbd645892658b440e"
+          }
+        },
+        {
+          "client_id": "464705815256-e270ngnr8gb7d2h1du8mjo21mk9gkqor.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCXa1KPb0bdX_731cuJjHwMsSerMfbUJG4"
+          "current_key": "AIzaSyAzwaRAjg1hxyi6YxcagH3gUT3TmnqrzPE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "712281545859-dspmjlm265fjugh1te12qeu1jo804fqi.apps.googleusercontent.com",
+              "client_id": "464705815256-e270ngnr8gb7d2h1du8mjo21mk9gkqor.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "712281545859-kkj46ubqqmhlt92merjnar6msh6htrur.apps.googleusercontent.com",
+              "client_id": "464705815256-59qb6t52e3ht7ssfhbi506p82n6llrjf.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.thirdnoteapptry"
+                "bundle_id": "com.example.ani_loginapp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:464705815256:android:dc9db9bb546219b77e8dad",
+        "android_client_info": {
+          "package_name": "com.example.thirdnoteapptry"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "464705815256-14dqf4f7fgvcqa02br11mfvelna9umqs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.thirdnoteapptry",
+            "certificate_hash": "dd0df8481f6015376550d1ebbd645892658b440e"
+          }
+        },
+        {
+          "client_id": "464705815256-e270ngnr8gb7d2h1du8mjo21mk9gkqor.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzwaRAjg1hxyi6YxcagH3gUT3TmnqrzPE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "464705815256-e270ngnr8gb7d2h1du8mjo21mk9gkqor.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "464705815256-59qb6t52e3ht7ssfhbi506p82n6llrjf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.ani_loginapp"
               }
             }
           ]

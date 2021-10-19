@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:thirdnoteapptry/screens/homenav_screen.dart';
-import 'package:thirdnoteapptry/screens/main_screen.dart';
 import 'package:thirdnoteapptry/screens/wellcome_screen.dart';
 
 class SplashScreen extends StatefulWidget {

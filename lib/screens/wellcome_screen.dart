@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -167,7 +166,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 child: Container(
                   color: Colors.white,
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      signInWithGoogle(context);
+                    },
                     child: Ink(
                       color: const Color(0xFF397AF3),
                       child: Padding(
@@ -176,26 +177,18 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                           crossAxisAlignment: WrapCrossAlignment.center,
                           children: [
                             IconButton(
-                                onPressed: () {
-                                  // //Sign In with google
-                                  AuthClass()
-                                      .signWithGoogle()
-                                      .then((UserCredential value) {
-                                    Navigator.pushAndRemoveUntil(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const WelcomeScreen()),
-                                        (route) => false);
-                                  });
-                                },
-                                icon: ClipRRect(
-                                  borderRadius: BorderRadius.circular(12),
-                                  child: Image.asset(
-                                    'assets/images/googleicon.jpeg',
-                                    height: 40,
-                                  ),
-                                )),
+                              onPressed: () {
+                                // //Sign In with google
+                                signInWithGoogle(context);
+                              },
+                              icon: ClipRRect(
+                                borderRadius: BorderRadius.circular(12),
+                                child: Image.asset(
+                                  'assets/images/googleicon.jpeg',
+                                  height: 40,
+                                ),
+                              ),
+                            ),
                             const Text(
                               'Sign in with Google   ',
                               style: TextStyle(color: Colors.black),

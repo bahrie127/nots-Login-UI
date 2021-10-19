@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:thirdnoteapptry/screens/main_screen.dart';
+import 'package:thirdnoteapptry/screens/NavigationIndex/main_screen.dart';
+import 'package:thirdnoteapptry/screens/NavigationIndex/note.dart';
 
 class HomeNavigationScreen extends StatefulWidget {
   const HomeNavigationScreen({Key? key}) : super(key: key);
@@ -14,17 +15,14 @@ class _HomeNavigationScreenState extends State<HomeNavigationScreen> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
-  static const List<Widget> _widgetOptions = <Widget>[
-    Mainscreen(),
-    Text(
-      'Index 1: Business',
+  static final List<Widget> _widgetOptions = <Widget>[
+    const Mainscreen(),
+    const NoteScreen(),
+    const Text(
+      'Index 2: ToDo List',
       style: optionStyle,
     ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
-    Text(
+    const Text(
       'Index 3: Settings',
       style: optionStyle,
     ),
@@ -47,27 +45,27 @@ class _HomeNavigationScreenState extends State<HomeNavigationScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
-            backgroundColor: Colors.deepPurple,
+            backgroundColor: Color(0xFFb19cd9),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.note_alt_sharp),
             label: 'Notes',
-            backgroundColor: Colors.deepPurple,
+            backgroundColor: Color(0xFFb19cd9),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.list_alt_rounded),
             label: 'ToDo List',
-            backgroundColor: Colors.deepPurple,
+            backgroundColor: Color(0xFFb19cd9),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             label: 'Settings',
-            backgroundColor: Colors.deepPurple,
+            backgroundColor: Color(0xFFb19cd9),
           ),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.grey[400],
+        unselectedItemColor: const Color(0xFF1D1C1A),
         onTap: _onItemTapped,
       ),
     );

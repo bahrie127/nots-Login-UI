@@ -5,7 +5,6 @@ import 'package:flutter/widgets.dart';
 import 'package:thirdnoteapptry/screens/authscreen/forgot_password.dart';
 import 'package:thirdnoteapptry/screens/authscreen/signup.dart';
 import 'package:thirdnoteapptry/screens/homenav_screen.dart';
-import 'package:thirdnoteapptry/screens/main_screen.dart';
 
 class LoginAuth extends StatefulWidget {
   const LoginAuth({Key? key}) : super(key: key);
